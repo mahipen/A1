@@ -1,0 +1,221 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    outline: none;
+}
+
+:root {
+    --background-color: #161616;
+    /* Dark gray background */
+    --text-color: #f2f2f7;
+    /* Light gray text */
+    --primary-color: #0a84ff;
+    /* Blue accent color */
+    --secondary-color: #3a3a3c;
+    /* Darker gray for elements */
+    --border-color: #2c2c2e;
+    /* Border color */
+    --highlight-color: #5ac8fa;
+    /* Highlight color */
+    outline: none;
+}
+
+h1,
+h2 {
+    color: #333;
+}
+
+.content h1 {
+    color: #f2f2f7;
+    margin-left: 24px;
+    margin-top: 24px;
+}
+
+.group {
+    display: flex;
+    line-height: 28px;
+    align-items: center;
+    position: relative;
+    margin: 24px;
+}
+
+.input {
+    font-family: "Montserrat", sans-serif;
+    width: 100%;
+    height: 45px;
+    padding-left: 2.5rem;
+    box-shadow: 0 0 0 1.5px #2b2c37, 0 0 25px -17px #000;
+    border: 0;
+    border-radius: 12px;
+    background-color: #16171d;
+    outline: none;
+    color: #bdbecb;
+    transition: all 0.25s cubic-bezier(0.19, 1, 0.22, 1);
+    cursor: text;
+    z-index: 0;
+}
+
+.input::placeholder {
+    color: #bdbecb;
+}
+
+.input:hover {
+    box-shadow: 0 0 0 2.5px #2f303d, 0px 0px 25px -15px #000;
+}
+
+.input:active {
+    transform: scale(0.95);
+}
+
+.input:focus {
+    box-shadow: 0 0 0 2.5px #2f303d;
+}
+
+.search-icon {
+    position: absolute;
+    left: 1rem;
+    fill: #bdbecb;
+    width: 1rem;
+    height: 1rem;
+    pointer-events: none;
+    z-index: 1;
+}
+
+#kelasFilter,
+#kelaminFilter {
+    margin: 10px;
+    padding: 5px;
+}
+
+#studentList {
+    margin-left: 10px;
+    margin-right: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 2fr); /* Membuat dua kolom dengan ukuran yang sama */
+    gap: 8px; /* Memberi jarak antar card */
+}
+
+.student-card {
+    border-radius: 5px;
+    text-align: center;
+}
+
+.activity-logo,
+.badge-logo {
+    width: 300px;
+    height: auto;
+    border-radius: 50%;
+    display: flex;
+}
+
+
+.student-card:hover {
+    transform: translateY(-5px);
+}
+
+.student-card-header {
+    padding: 16px;
+    text-align: center;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    object-fit: cover;
+}
+
+.student-card-body {
+    padding: 16px;
+}
+
+.student-name {
+    font-size: 14px;
+    margin: 8px 0;
+    color: #f2f2f7;
+}
+
+.student-link {
+    color: #f2f2f7;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.student-class {
+    color: #777;
+    font-size: 14px;
+}
+
+
+.photo-gallery img {
+    width: 100px;
+    height: auto;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+button {
+    margin: 10px;
+}
+
+.badge-container {
+  
+}
+
+
+.tooltip-container {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tooltip-container .badge-logo {
+    cursor: pointer;
+    width: 40px;
+    /* Adjust size as needed */
+    height: 40px;
+    /* Adjust size as needed */
+    margin-left: 4px;
+}
+
+.tooltip {
+    position: absolute;
+    bottom: 125%;
+    /* Position above the badge */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--border-color);
+    /* Tooltip background color */
+    color: white;
+    /* Tooltip text color */
+    padding: 5px;
+    border-radius: 5px;
+    width: 150px;
+    /* Adjust width as needed */
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    font-size: 13px;
+}
+
+.tooltip-container:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+.tooltip-container .tooltip::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    /* Position below the tooltip */
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: #6e7681 transparent transparent transparent;
+    /* Tooltip triangle */
+}
