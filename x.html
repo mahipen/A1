@@ -1,50 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1a1a1a;
+            padding: 10px 20px;
+            position: relative;
+        }
+        .navbar-brand {
+            font-size: 24px;
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .navbar-menu {
+            display: flex;
+            align-items: center;
+        }
+        .navbar-item {
+            margin-left: 20px;
+            color: #ffffff;
+            text-decoration: none;
+            position: relative;
+        }
+        .dropdown {
+            display: none;
+            position: absolute;
+            background-color: #1a1a1a;
+            min-width: 160px;
+            z-index: 1;
+        }
+        .dropdown-item {
+            color: #ffffff;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-item:hover {
+            background-color: #333333;
+        }
+        .navbar-toggle {
+            display: none;
+            cursor: pointer;
+        }
+        .hamburger {
+            width: 30px;
+            height: 3px;
+            background-color: #ffffff;
+            margin: 5px 0;
+            transition: 0.4s;
+        }
+        @media (max-width: 768px) {
+            .navbar-menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background-color: #1a1a1a;
+            }
+            .navbar-menu.active {
+                display: flex;
+            }
+            .navbar-toggle {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
 
-<div class="toppro">
-    <div class="header">${student.nama_lengkap}</div>
-    <div class="subtext">${student.kelas}, ${student.jabatan_di_kelas}</div>
-    
-    <div class="friends-container">
-        <ul class="closest-friends-list">
-            ${friends.slice(0, 3).map(friend => `
-                <li class="friend-card">
-                    <a href="siswa.html?id=${friend.id_siswa}" class="friend-link">
-                        <img src="${friend.foto_profil}" alt="${friend.nama_lengkap}" class="friend-image">
-                    </a>
-                </li>
-            `).join('')}
-        </ul>
-        
-        ${friends.length > 3 ? `
-            <div class="more-friends-container">
-                <a href="teman.html?id=${student.id_siswa}" class="more-friends-link">
-                    +${friends.length - 3}
-                </a>
-            </div>
-        ` : ''}
-        
-        <div class="playlist">
-            <a href="${student.playlist_musik}" target="_blank">Dengarkan Playlist</a>
+<div class="navbar">
+    <a href="#" class="navbar-brand">University</a>
+    <div class="navbar-toggle" id="navbarToggle">
+        <div class="hamburger"></div>
+        <div class="hamburger"></div>
+        <div class="hamburger"></div>
+    </div>
+    <div class="navbar-menu" id="navbarMenu">
+        <a href="#" class="navbar-item">Home</a>
+        <a href="#" class="navbar-item">About</a>
+        <div class="navbar-item" id="dropdownToggle">Programs</div>
+        <div class="dropdown" id="dropdownMenu">
+            <a href="#" class="dropdown-item">Undergraduate</a>
+            <a href="#" class="dropdown-item">Postgraduate</a>
+            <a href="#" class="dropdown-item">Research</a>
         </div>
+        <a href="#" class="navbar-item">Contact</a>
     </div>
-    
-    <div></div>
-    
-    <div>🚀 ${student.quote_favorit}</div>
-    
-    <div>
-        <a href="https://linktr.ee/codegem">linktr.ee/codegem</a>
-        <span class="secondary">
-            <p>${age} tahun, ${zodiacSign}</p>
-            <p>Ultah berikutnya: ${daysUntilBirthday} hari</p>
-            ${daysUntilBirthday === 0 ? '<p>Selamat Ulang Tahun!</p>' : ''}
-        </span>
-    </div>
-    
-    <div class="hobi-container">
-        <div class="hobi">
-            <ul>
-                ${student.hobi_dan_minat.map(hobi => `<li>${hobi}</li>`).join('')}
-            </ul>
-        </div>
-    </div>
-    </div>
+</div>
+
+<script>
+    const navbarToggle = document.getElementById('navbarToggle');
+    const navbarMenu = document.getElementById('navbarMenu');
+    const dropdownToggle = document.getElementById('dropdownToggle');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+
+    navbarToggle.addEventListener('click', () => {
+        navbarMenu.classList.toggle('active');
+    });
+
+    dropdownToggle.addEventListener('click', () => {
+        dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+    });
+</script>
+
+</body>
+</html>

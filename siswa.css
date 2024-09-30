@@ -14,7 +14,8 @@ body {
 }
 
 :root {
-    --gap: 8vh; /* Adjust gap based on viewport width */
+    --gap: 8vh;
+    /* Adjust gap based on viewport width */
     --background-color: #0A0A0B;
     /* Dark gray background */
     --text-color: #f2f2f7;
@@ -77,6 +78,8 @@ body {
 .content {
     max-width: 600px;
     border: 1px solid var(--border-color);
+    background-color: #000000;
+    z-index: 1;
     margin: 0px auto;
     top: 0;
     overflow: hidden;
@@ -162,19 +165,13 @@ a {
 
 /* ------ WALLPAPER ------ */
 .wallpaper {
-    --color: rgba(114, 114, 114, 0.3);
-    background-color: var(--background-color);
-    background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent),
-        linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent);
-    background-size: 55px 55px;
-    height: 124px;
+ 
+    height: 300px;
     margin-top: 8vh;
     overflow: hidden;
 }
 
-.wallpaper img {
-
-}
+.wallpaper img {}
 
 
 
@@ -183,7 +180,18 @@ a {
 
 .toppro {
     line-height: 1.5;
+    background-color: hsla(0, 0%, 0%, 0.433);
+    padding-bottom: -50vh;
+    z-index: 1;
+    position: relative;
+    top: -10vh;
+    backdrop-filter: blur(5px);
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+
 }
+
 .toppro h2 {
     font-size: 24px;
     color: #fff;
@@ -191,40 +199,32 @@ a {
 
 .bio {
     margin: 18px;
+    margin-bottom: -12vh;
+    position: relative;
 }
+
 .pre-bio {
     text-align: center;
     justify-content: center;
 }
 
 .pfp {
-    background-size: cover;
-    cursor: pointer;
 
 }
 
 .pfp img {
-    width: 180px;
-    height: 180px;
+    width: 100%;
+    height: 600px;
+    border-radius: 20px;
     object-fit: cover;
-    border-radius: 50%;
     margin: 0 auto;
     border: 5px solid var(--bkg-color);
     position: relative;
-    top: -14vh;
-    margin-bottom: -12vh;
+    top: -38vh;
+    margin-bottom: -38vh;
 }
 
-.pfp:hover:after {
-    content: "";
 
-    background-color: var(--bkg-color);
-    width: 240px;
-    height: 240px;
-    border-radius: 50%;
-    z-index: 5;
-    opacity: 100;
-}
 
 .btn {
     font-weight: 600;
@@ -246,7 +246,7 @@ a {
 .tabs {
     display: flex;
     align-items: stretch;
-
+    display: none;
     font-weight: 700;
     font-size: 15px;
     color: var(--secondary-text);
@@ -428,7 +428,8 @@ section h2 {
     width: 50px;
     height: 50px;
     margin-right: 10px;
-    border-radius: 50%; /* Optional: to make the image circular */
+    border-radius: 50%;
+    /* Optional: to make the image circular */
 }
 
 .activity-name {
@@ -443,10 +444,11 @@ section h2 {
     margin: 0;
     list-style-type: none;
     font-size: 15px;
+    margin-top: 14px;
 }
 
 .hobi li {
-    margin-right: 14px;
+    margin-right: 8px;
     padding: 5px 14px;
     border: 1px solid var(--border-color);
     border-radius: 50px;
@@ -476,8 +478,8 @@ section h2 {
     margin: 4px;
     --color: rgba(114, 114, 114, 0.3);
     background-color: var(--background-color);
-    background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent),
-        linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent);
+    background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%, transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%, transparent),
+        linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%, transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%, transparent);
     background-size: 55px 55px;
     overflow: hidden;
     padding: 18px 0px;
@@ -492,7 +494,8 @@ section h2 {
     height: 30px;
     overflow: hidden;
     background-color: #ddd;
-    transform-origin: left center; /* Rotate around the left edge */
+    transform-origin: left center;
+    /* Rotate around the left edge */
 }
 
 .bar span {
@@ -506,23 +509,33 @@ section h2 {
     position: absolute;
     width: 100%;
     top: 0;
-    right: 10px; /* Position the text to the right edge */
-    padding-right: 10px; /* Add some padding to the right */
-    box-sizing: border-box; /* Ensure padding is included in width */
+    right: 10px;
+    /* Position the text to the right edge */
+    padding-right: 10px;
+    /* Add some padding to the right */
+    box-sizing: border-box;
+    /* Ensure padding is included in width */
 }
 
 /* Specific colors for each bar */
 .bar:nth-child(1) {
-    background-color: #8A5BFF; /* Example color 1 */
+    background-color: var(--border-color);
+    /* Example color 1 */
 }
+
 .bar:nth-child(2) {
-    background-color: #FF3388; /* Example color 2 */
+    background-color: var(--border-color);
+    /* Example color 2 */
 }
+
 .bar:nth-child(3) {
-    background-color: #FFD028; /* Example color 3 */
+    background-color: var(--border-color);
+    /* Example color 3 */
 }
+
 .bar:nth-child(4) {
-    background-color: #f828ff; /* Example color 4 */
+    background-color: var(--border-color);
+    /* Example color 4 */
 }
 
 .timeline-list {

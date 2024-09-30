@@ -164,17 +164,15 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 
     <div class="tab-content active" id="tweets">
-
-    
 <section class="container-section">
-<div class="sec-informasi">
-    <h2>Informasi</h2>
-    <p>Jurusan: ${student.jurusan}</p>
-    <p>Tanggal Lahir: ${student.tanggal_lahir}</p>
-    <p>Kelamin: ${student.kelamin}</p>
-    <p>Biografi: ${student.biografi}</p>
-    <p>Cita-cita: ${student.mimpi_dan_cita_cita}</p>
-</div>
+    <div class="sec-informasi">
+        <h2>Informasi</h2>
+        <p>Jurusan: ${student.jurusan}</p>
+        <p>Tanggal Lahir: ${student.tanggal_lahir}</p>
+        <p>Kelamin: ${student.kelamin}</p>
+        <p>Biografi: ${student.biografi}</p>
+        <p>Cita-cita: ${student.mimpi_dan_cita_cita}</p>
+    </div>
 </section>
 
 <section class="container-section">
@@ -196,38 +194,27 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 
 <section class="container-section">
-   <div class="badge-container">
-       <h2>Badge</h2>
-                ${student.badge_penghargaan.map(badge => `
-                    <div class="tooltip-container">
-                        <img src="${badge.logo}" alt="${badge.nama}" class="badge-logo">
-                        <span class="tooltip">${badge.nama}</span>
-                    </div>
-                `).join('')}
-            </div>
+    <div class="sec-prestasi">
+        <h2>Prestasi</h2>
+        <ul>
+            ${student.prestasi.map(p => `<li>${p}</li>`).join('')}
+        </ul>
+    </div>
 </section>
 
- <section class="container-section">
-        <h2>Timeline Pendidikan</h2>
-        <ul class="timeline-list">
-            ${student.timeline_pendidikan.map(entry => `
-                <li class="timeline-item">
-                    <div class="timeline-date">${entry.startYear} - ${entry.endYear}</div>
-                    <div class="timeline-content">
-                        <h3>${entry.title}</h3>
-                        <p>${entry.institution}</p>
-                    </div>
-                </li>
-            `).join('')}
-        </ul>
-    </section>
-
+<section class="container-section">
+    <div class="badge-container">
+        <h2>Badge</h2>
+        ${student.badge_penghargaan.map(badge => `
+            <div class="tooltip-container">
+                <img src="${badge.logo}" alt="${badge.nama}" class="badge-logo">
+                <span class="tooltip">${badge.nama}</span>
+            </div>
+        `).join('')}
     </div>
+</section>
 
-    <div class="tab-content" id="media">
-
-    <section class="container-section">
-<div class="sec-extra">
+<section class="container-section">
     <h2>Aktivitas Ekstrakurikuler</h2>
     <ul class="extracurricular-list">
         ${student.aktivitas_ekstrakurikuler.map(a => `
@@ -239,25 +226,32 @@ document.addEventListener('DOMContentLoaded', function() {
             </li>
         `).join('')}
     </ul>
-</div>
 </section>
 
 <section class="container-section">
-<div class="sec-prestasi">
-    <h2>Prestasi</h2>
-    <ul>
-        ${student.prestasi.map(p => `<li>${p}</li>`).join('')}
+    <h2>Timeline Pendidikan</h2>
+    <ul class="timeline-list">
+        ${student.timeline_pendidikan.map(entry => `
+            <li class="timeline-item">
+                <div class="timeline-date">${entry.startYear} - ${entry.endYear}</div>
+                <div class="timeline-content">
+                    <h3>${entry.title}</h3>
+                    <p>${entry.institution}</p>
+                </div>
+            </li>
+        `).join('')}
     </ul>
-</div>
 </section>
 
-<section class="container-section">
-<div class="stats">
-<h2>Statistik Akademis</h2>
-    <p>Semester 1: Rata-rata ${student.statistik_akademis.semester_1.rata_rata}</p>
-    <p>Semester 2: Rata-rata ${student.statistik_akademis.semester_2.rata_rata}</p>
-</div>
-</section>
+    </div>
+
+
+
+
+
+    
+    <div class="tab-content" id="media">
+
 
 
     </div>
